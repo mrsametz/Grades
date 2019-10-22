@@ -37,6 +37,5 @@ public class CompositeGrade implements Grade {
 			output += g.toString();
 		}
 		return output;
-		
 	}
 }
