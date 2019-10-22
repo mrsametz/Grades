@@ -11,7 +11,6 @@ public class CompositeGrade implements Grade {
 	
 	public CompositeGrade() {
 		list = new ArrayList<>();
-		
 	}
 	
 	@Override
