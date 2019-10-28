@@ -3,6 +3,12 @@ package edu.westga.cs.schoolgrades.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class is decorator for CompositeGrade strategy
+ * 
+ * @author Ashley Metz
+ * @version 10/28/2019
+ */
 public class CompositeGradeDropLowest implements GradeStrategy{
 
 	private GradeStrategy endStrategy;

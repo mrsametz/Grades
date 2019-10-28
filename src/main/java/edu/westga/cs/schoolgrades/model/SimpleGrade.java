@@ -1,6 +1,12 @@
 package edu.westga.cs.schoolgrades.model;
 
-public class SimpleGrade extends Object implements Grade  {
+/**
+ * This class is a simple grade that implements the Grade interface.
+ * 
+ * @author Ashley Metz
+ * @version 10/22/2019
+ */
+public class SimpleGrade implements Grade  {
 	private double grade;
 	
 	public SimpleGrade(double grade) {

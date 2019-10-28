@@ -2,6 +2,12 @@ package edu.westga.cs.schoolgrades.model;
 
 import java.util.List;
 
+/**
+ * This class is a sum strategy for CompositeGrade
+ * 
+ * @author Ashley Metz
+ * @version 10/22/2019
+ */
 public class CompositeGradeSum implements GradeStrategy{
 	
 	@Override

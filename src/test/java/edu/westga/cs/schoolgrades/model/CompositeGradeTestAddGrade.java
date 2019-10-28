@@ -8,7 +8,8 @@ public class CompositeGradeTestAddGrade {
 
 	@Test
 	public void testAddGrade() {
-		CompositeGrade grade = new CompositeGrade();
+		CompositeGradeSum sum = new CompositeGradeSum();
+		CompositeGrade grade = new CompositeGrade(sum);
 		Grade g = new SimpleGrade(50);
 		grade.add(g);
 		assertEquals(grade.toString(), "50.0");

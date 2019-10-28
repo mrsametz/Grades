@@ -9,7 +9,8 @@ public class CompositeGradeTestCreate {
 
 	@Test
 	public void testCreateCompositeGrade() {
-		CompositeGrade grade = new CompositeGrade();
+		CompositeGradeAverage average = new CompositeGradeAverage();
+		CompositeGrade grade = new CompositeGrade(average);
 		assertEquals(grade.toString(), "");
 	}
 }

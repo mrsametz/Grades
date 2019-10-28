@@ -3,6 +3,12 @@ package edu.westga.cs.schoolgrades.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class is a Grade of the composite style.
+ * 
+ * @author Ashley Metz
+ * @version 10/22/2019
+ */
 public class CompositeGrade implements Grade {
 
 	private GradeStrategy strategy;

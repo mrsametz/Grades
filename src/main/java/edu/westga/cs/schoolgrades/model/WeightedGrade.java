@@ -1,5 +1,11 @@
 package edu.westga.cs.schoolgrades.model;
 
+/**
+ * This class is a decorator for Grade.
+ * 
+ * @author Ashley Metz
+ * @version 10/28/2019
+ */
 public class WeightedGrade implements Grade {
 
 	private double weight;

@@ -14,8 +14,9 @@ import org.junit.Test;
 public class CompositeGradeSumTestApplyStrategy {
 	@Test
 	public void testCompositeGradeSumStrategy() {
-		CompositeGrade grade = new CompositeGrade();
 		CompositeGradeSum sum  = new CompositeGradeSum();
+		CompositeGrade grade = new CompositeGrade(sum);
+		
 		
 		Grade g = new SimpleGrade(50);
 		Grade g1 = new SimpleGrade(50);
