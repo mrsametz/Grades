@@ -9,6 +9,6 @@ import java.util.List;
  * @version 10/22/2019
  */
 public interface GradeStrategy {
-	
+
 	public double applyStrategy(List<Grade> list);
 }

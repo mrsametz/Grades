@@ -6,13 +6,13 @@ package edu.westga.cs.schoolgrades.model;
  * @author Ashley Metz
  * @version 10/22/2019
  */
-public class SimpleGrade implements Grade  {
+public class SimpleGrade implements Grade {
 	private double grade;
-	
+
 	public SimpleGrade(double grade) {
 		this.grade = grade;
 	}
-	
+
 	@Override
 	public double getValue() {
 
@@ -22,7 +22,7 @@ public class SimpleGrade implements Grade  {
 	@Override
 	public String toString() {
 		return "" + this.grade;
-		
+
 	}
-	
+
 }
