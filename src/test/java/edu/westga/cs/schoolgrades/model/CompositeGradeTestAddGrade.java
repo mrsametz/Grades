@@ -20,7 +20,7 @@ public class CompositeGradeTestAddGrade {
 		grade.add(g);
 		assertEquals(grade.toString(), "50.0");
 	}
-	
+
 	@Test
 	public void testAddGradeTwoGrades() {
 		CompositeGradeSum sum = new CompositeGradeSum();
@@ -31,7 +31,7 @@ public class CompositeGradeTestAddGrade {
 		grade.add(g1);
 		assertEquals(grade.toString(), "50.0, 50.0");
 	}
-	
+
 	@Test
 	public void testAddGradeThreeGrades() {
 		CompositeGradeSum sum = new CompositeGradeSum();

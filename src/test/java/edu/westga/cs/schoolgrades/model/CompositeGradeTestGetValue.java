@@ -25,9 +25,9 @@ public class CompositeGradeTestGetValue {
 
 		assertEquals(grade.getValue(), 90, 0);
 	}
-	
+
 	@Test
-	public void testCompositeGradeGetValueFiveGrades() {
+	public void testCompositeGradeGetValueAverageFiveGrades() {
 		CompositeGradeAverage average = new CompositeGradeAverage();
 		CompositeGrade grade = new CompositeGrade(average);
 
@@ -43,5 +43,24 @@ public class CompositeGradeTestGetValue {
 		grade.add(g4);
 
 		assertEquals(grade.getValue(), 78.0, 0);
+	}
+
+	@Test
+	public void testCompositeGradeGetValueSumFiveGrades() {
+		CompositeGradeSum sum = new CompositeGradeSum();
+		CompositeGrade grade = new CompositeGrade(sum);
+
+		Grade g = new SimpleGrade(90);
+		Grade g1 = new SimpleGrade(80);
+		Grade g2 = new SimpleGrade(100);
+		Grade g3 = new SimpleGrade(90);
+		Grade g4 = new SimpleGrade(30);
+		grade.add(g);
+		grade.add(g1);
+		grade.add(g2);
+		grade.add(g3);
+		grade.add(g4);
+
+		assertEquals(grade.getValue(), 390.0, 0);
 	}
 }

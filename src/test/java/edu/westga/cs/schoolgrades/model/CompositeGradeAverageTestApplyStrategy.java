@@ -25,7 +25,7 @@ public class CompositeGradeAverageTestApplyStrategy {
 
 		assertEquals(average.applyStrategy(grade.getAll()), 75, 0);
 	}
-	
+
 	@Test
 	public void CompositeGradeTestAverageApplyStrategySixGrades() {
 		CompositeGradeAverage average = new CompositeGradeAverage();
@@ -46,7 +46,7 @@ public class CompositeGradeAverageTestApplyStrategy {
 
 		assertEquals(average.applyStrategy(grade.getAll()), 79.16, 2);
 	}
-	
+
 	@Test
 	public void CompositeGradeTestAverageApplyStrategyTenGrades() {
 		CompositeGradeAverage average = new CompositeGradeAverage();
@@ -72,7 +72,7 @@ public class CompositeGradeAverageTestApplyStrategy {
 		grade.add(g7);
 		grade.add(g8);
 		grade.add(g9);
-		
+
 		assertEquals(average.applyStrategy(grade.getAll()), 82.15, 2);
 	}
 }

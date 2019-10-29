@@ -25,7 +25,7 @@ public class CompositeGradeSumTestFormatDecimal {
 
 		assertEquals(sum.formatDecimal(sum.applyStrategy(grade.getAll())), "225.00");
 	}
-	
+
 	@Test
 	public void CompositeGradeTestAverageFormatDecimalSixGrades() {
 		CompositeGradeSum sum = new CompositeGradeSum();
@@ -43,10 +43,10 @@ public class CompositeGradeSumTestFormatDecimal {
 		grade.add(g3);
 		grade.add(g4);
 		grade.add(g5);
-		
+
 		assertEquals(sum.formatDecimal(sum.applyStrategy(grade.getAll())), "476.05");
 	}
-	
+
 	@Test
 	public void CompositeGradeTestAverageDecimalFormatTenGrades() {
 		CompositeGradeSum sum = new CompositeGradeSum();
@@ -72,7 +72,6 @@ public class CompositeGradeSumTestFormatDecimal {
 		grade.add(g7);
 		grade.add(g8);
 		grade.add(g9);
-
 
 		assertEquals(sum.formatDecimal(sum.applyStrategy(grade.getAll())), "825.50");
 	}
