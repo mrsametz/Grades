@@ -1,5 +1,6 @@
 package edu.westga.cs.schoolgrades.model;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 /**
@@ -17,5 +18,11 @@ public class CompositeGradeSum implements GradeStrategy{
 			total += g.getValue();
 		}
 		return total;
+	}
+	
+	public String formatDecimal(double sum) {
+		DecimalFormat df = new DecimalFormat("#.00");
+	
+		return df.format(sum);
 	}
 }
