@@ -9,24 +9,24 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * Main class for the Babble project
+ * Main class for the school grades
  * 
- * @author lewisb
- * @version cs6241
+ * @author AshleyMetz
+ * @version 11/8/2019
  */
 public class Main extends Application {
 
-	private static final String GUI_RESOURCE = "edu/westga/cs/schoolgrades/views/GradesGui.fxml";
+	private static final String GUI_RESOURCE = "edu/westga/cs/schoolgrades/view/SchoolGradesGUI.fxml";
     @Override
     public void start(Stage primaryStage) throws Exception {
-//        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-//        URL resource = classLoader.getResource(Main.GUI_RESOURCE);
-//        FXMLLoader loader = new FXMLLoader(resource);
-//        Parent root = (Parent) loader.load();
-//        Scene scene = new Scene(root);
-//        primaryStage.setScene(scene);
-//        primaryStage.setTitle("Grades Worksheet");
-//        primaryStage.show();
+     ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+       URL resource = classLoader.getResource(Main.GUI_RESOURCE);
+       FXMLLoader loader = new FXMLLoader(resource);
+       Parent root = (Parent) loader.load();
+      Scene scene = new Scene(root);
+      primaryStage.setScene(scene);
+      primaryStage.setTitle("Grades Worksheet");
+     primaryStage.show();
     }
 
     /**
