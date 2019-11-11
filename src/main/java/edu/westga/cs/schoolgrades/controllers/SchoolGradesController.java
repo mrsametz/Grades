@@ -38,6 +38,7 @@ public class SchoolGradesController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 
 		quizListView = new ListView<>();
+		
 		observableList = FXCollections.observableArrayList();
 		quizListView.setEditable(true);
         quizListView.setItems(observableList);
@@ -57,7 +58,8 @@ public class SchoolGradesController implements Initializable {
                     }
                 });
             }
-            
+       
+	
              @Override
              protected void updateItem(Grade grade, boolean empty) {
                     super.updateItem(grade, empty);
@@ -73,7 +75,7 @@ public class SchoolGradesController implements Initializable {
                         setGraphic(null);
                     }
                 }
-             @Override
+           @Override
              public void startEdit() {
                  super.startEdit();
                  textField.setText(String.format("%.2f", getItem().getValue()));
@@ -88,10 +90,11 @@ public class SchoolGradesController implements Initializable {
              @Override
              public void commitEdit(Grade grade) {
                  super.commitEdit(grade);
+                 observableList.add(grade);
                  grade.getValue();
                  setText(String.format("%.2f", getItem().getValue()));
                  setGraphic(null);
-                 quizListView.setItems(observableList);
+                 
              }
              
              @Override
@@ -103,7 +106,7 @@ public class SchoolGradesController implements Initializable {
          });
 	}
 
-
+        
 	@FXML
 	public void clickRecalculate(ActionEvent event) {
 		CompositeGradeSum sumQuiz = new CompositeGradeSum();
@@ -120,7 +123,7 @@ public class SchoolGradesController implements Initializable {
 	
 	@FXML
 	public void addQuiz(ActionEvent event) {
-		observableList.add(new SimpleGrade(10));
+		//observableList.add
 		
 		//change to add user input
 		
