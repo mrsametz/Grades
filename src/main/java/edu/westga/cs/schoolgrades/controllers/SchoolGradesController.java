@@ -53,7 +53,7 @@ public class SchoolGradesController implements Initializable {
             	
                 return new SimpleGrade(Double.valueOf(string));
             }
-
+            
 	    }));
 
           
@@ -74,10 +74,9 @@ public class SchoolGradesController implements Initializable {
 	
 	@FXML
 	public void addQuiz(ActionEvent event) {
+		observableList.add(new SimpleGrade(0));
 		
-		observableList.add(new SimpleGrade(10));
 		
-		//change to add user input
 		
 	
 	}
