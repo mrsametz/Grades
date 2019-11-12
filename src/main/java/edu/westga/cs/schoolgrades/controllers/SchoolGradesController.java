@@ -36,14 +36,13 @@ public class SchoolGradesController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-		quizListView = new ListView<SimpleGrade>();
-		observableList = FXCollections.observableArrayList(new SimpleGrade(10));
+		
+		observableList = FXCollections.observableArrayList();
 		quizListView.setItems(observableList);
 		quizListView.setEditable(true);
-	     
-	
+		 
 		quizListView.setCellFactory(TextFieldListCell.forListView(new StringConverter<SimpleGrade>(){
-
+			
 			@Override
             public String toString(SimpleGrade simpleGrade) {
                 return simpleGrade.toString();
@@ -75,6 +74,7 @@ public class SchoolGradesController implements Initializable {
 	
 	@FXML
 	public void addQuiz(ActionEvent event) {
+		
 		observableList.add(new SimpleGrade(10));
 		
 		//change to add user input
