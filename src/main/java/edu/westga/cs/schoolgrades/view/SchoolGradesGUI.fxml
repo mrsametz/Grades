@@ -7,7 +7,6 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -81,7 +80,7 @@
             <VBox prefHeight="74.0" prefWidth="146.0">
                <children>
                   <Label contentDisplay="RIGHT" text="Quiz Subtotal" />
-                  <TextField prefHeight="26.0" prefWidth="142.0" />
+                  <TextField fx:id="quizSubtotal" prefHeight="26.0" prefWidth="142.0" />
                </children>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" />
@@ -90,7 +89,7 @@
             <VBox prefHeight="74.0" prefWidth="157.0">
                <children>
                   <Label text="Homework Subtotal" />
-                  <TextField />
+                  <TextField fx:id="homeworkSubtotal" />
                </children>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" />
@@ -102,7 +101,7 @@
             <VBox prefHeight="74.0" prefWidth="155.0">
                <children>
                   <Label text="Exam Subtotal" />
-                  <TextField prefHeight="26.0" prefWidth="142.0" />
+                  <TextField fx:id="examSubtotal" prefHeight="26.0" prefWidth="142.0" />
                </children>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" />
@@ -129,7 +128,7 @@
             </VBox>
             <VBox prefHeight="50.0" prefWidth="273.0">
                <children>
-                  <TextArea prefHeight="14.0" prefWidth="207.0" />
+                  <TextField fx:id="finalGrade" />
                </children>
             </VBox>
             <VBox prefHeight="50.0" prefWidth="329.0">
