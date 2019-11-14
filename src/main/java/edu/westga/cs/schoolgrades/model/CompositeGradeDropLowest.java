@@ -20,7 +20,9 @@ public class CompositeGradeDropLowest implements GradeStrategy {
 	@Override
 	public double applyStrategy(List<Grade> list) {
 		List<Grade> notSmallest = new ArrayList<Grade>();
+		try {
 		Grade lowest = list.get(0);
+		
 		for (int i = 0; i < list.size(); i++) {
 			notSmallest.add(list.get(i));
 			if (list.get(i).getValue() < lowest.getValue()) {
@@ -28,8 +30,12 @@ public class CompositeGradeDropLowest implements GradeStrategy {
 			}
 		}
 		notSmallest.remove(lowest);
+		
+		}
+		catch (IndexOutOfBoundsException exception) {
+			System.out.print("A grade must be entered to recalculate the grades");
+		}
 		return endStrategy.applyStrategy(notSmallest);
-
 	}
 
 }
