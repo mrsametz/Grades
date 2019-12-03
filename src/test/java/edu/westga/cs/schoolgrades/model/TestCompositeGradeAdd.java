@@ -4,6 +4,8 @@ package edu.westga.cs.schoolgrades.model;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,10 +18,10 @@ public class TestCompositeGradeAdd {
 	
 	@BeforeEach
 	public void setup() {
-		composite = new CompositeGrade(new SumOfGradesStrategy());
-		grade0 = new SimpleGrade(10);
-		grade1 = new SimpleGrade(20);
-		grade2 = new SimpleGrade(30);
+		composite = new CompositeGrade(mock(GradeCalculationStrategy.class));
+		grade0 = mock(Grade.class);
+		grade1 = mock(Grade.class);
+		grade2 = mock(Grade.class);
 	}
 	
 	@Test

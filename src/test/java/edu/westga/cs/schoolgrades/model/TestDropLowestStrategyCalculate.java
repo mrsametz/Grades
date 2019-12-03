@@ -1,86 +1,117 @@
 package edu.westga.cs.schoolgrades.model;
 
-
-
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+
+//import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 public class TestDropLowestStrategyCalculate {
 
 	private DropLowestStrategy dropLowestStrategy;
 	private GradeCalculationStrategy childStrategy;
-	
+
 	private static final double DELTA = 0.001;
 	private Grade grade0;
 	private Grade grade1;
 	private Grade grade2;
-	
+
 	private List<Grade> grades;
-	
+	private List<Grade> gradesMinusLowest;
+
 	@BeforeEach
 	public void setUp() throws Exception {
-		grade0 = new SimpleGrade(10);
-		grade1 = new SimpleGrade(20);
-		grade2 = new SimpleGrade(30);
-		
+		grade0 = mock(Grade.class);
+		grade1 = mock(Grade.class);
+		grade2 = mock(Grade.class);
+
 		grades = new ArrayList<Grade>();
-		
-		childStrategy = new SumOfGradesStrategy();
+		gradesMinusLowest = new ArrayList<Grade>();
+		childStrategy = mock(GradeCalculationStrategy.class);
 		dropLowestStrategy = new DropLowestStrategy(childStrategy);
+		when(grade0.getValue()).thenReturn(10.00);
+		when(grade1.getValue()).thenReturn(20.00);
+		when(grade2.getValue()).thenReturn(30.00);
 	}
 
-	@Test
+	
+	//@Test(expected = IllegalArgumentException.class)
 	public void shouldNotAllowNullGradesList() {
-		assertThrows(IllegalArgumentException.class, () ->{ 
-			dropLowestStrategy.calculate(null);
-		});
+		when((childStrategy.calculate(null))).thenThrow(new IllegalArgumentException());
+		grades.add(null);
+		childStrategy.calculate(grades);
+		
+		
+		//assertThrows(IllegalArgumentException.class, () -> {
+		//	dropLowestStrategy.calculate(null);
+		//});
 	}
 
 	@Test
 	public void shouldNotDropLowestIfGradesListIsEmpty() {
-		assertEquals(0, dropLowestStrategy.calculate(grades), DELTA);
+		//assertEquals(0, dropLowestStrategy.calculate(grades), DELTA);
+		
+		//Mockito.verify(childStrategy, never()).calculate(gradesMinusLowest);
 	}
-	
+
 	public void shouldNotDropLowestIfGradesListHasOneElement() {
 		grades.add(grade0);
-		assertEquals(grade0.getValue(), dropLowestStrategy.calculate(grades), DELTA);
+		dropLowestStrategy.calculate(grades);
+		gradesMinusLowest.add(grade0);
+		Mockito.verify(childStrategy).calculate(gradesMinusLowest);
 	}
-	
+
 	@Test
 	public void canDropWhenLowestIsFirst() {
 		grades.add(grade0);
 		grades.add(grade1);
 		grades.add(grade2);
-		assertEquals(50, dropLowestStrategy.calculate(grades), DELTA);
+		dropLowestStrategy.calculate(grades);
+		gradesMinusLowest.add(grade1);
+		gradesMinusLowest.add(grade2);
+		Mockito.verify(childStrategy).calculate(gradesMinusLowest);
+
 	}
-	
-	
+
 	@Test
 	public void canDropWhenLowestIsLast() {
 		grades.add(grade1);
 		grades.add(grade2);
 		grades.add(grade0);
-		assertEquals(50, dropLowestStrategy.calculate(grades), DELTA);
+		dropLowestStrategy.calculate(grades);
+		gradesMinusLowest.add(grade1);
+		gradesMinusLowest.add(grade2);
+		Mockito.verify(childStrategy).calculate(gradesMinusLowest);
 	}
-	
+
 	@Test
 	public void canDropWhenLowestIsInMiddle() {
 		grades.add(grade1);
 		grades.add(grade0);
 		grades.add(grade2);
-		assertEquals(50, dropLowestStrategy.calculate(grades), DELTA);
+		dropLowestStrategy.calculate(grades);
+		gradesMinusLowest.add(grade1);
+		gradesMinusLowest.add(grade2);
+		Mockito.verify(childStrategy).calculate(gradesMinusLowest);
 	}
-	
+
 	@Test
 	public void dropsOnlyOneIfThereAreMultipleLowestGrades() {
 		grades.add(grade1);
 		grades.add(grade0);
 		grades.add(grade2);
 		grades.add(grade0);
-		assertEquals(60, dropLowestStrategy.calculate(grades), DELTA);
+		dropLowestStrategy.calculate(grades);
+		gradesMinusLowest.add(grade1);
+		gradesMinusLowest.add(grade2);
+		gradesMinusLowest.add(grade0);
+		Mockito.verify(childStrategy).calculate(gradesMinusLowest);
 	}
+
 }
