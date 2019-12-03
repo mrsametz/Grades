@@ -1,6 +1,5 @@
 package edu.westga.cs.schoolgrades.model;
 
-
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,7 +14,7 @@ public class TestCompositeGradeAdd {
 	private Grade grade0;
 	private Grade grade1;
 	private Grade grade2;
-	
+
 	@BeforeEach
 	public void setup() {
 		composite = new CompositeGrade(mock(GradeCalculationStrategy.class));
@@ -23,7 +22,7 @@ public class TestCompositeGradeAdd {
 		grade1 = mock(Grade.class);
 		grade2 = mock(Grade.class);
 	}
-	
+
 	@Test
 	public void canAddOneGrade() {
 		composite.add(grade0);
@@ -43,19 +42,19 @@ public class TestCompositeGradeAdd {
 		assertEquals(grade1, grades.get(1));
 		assertEquals(grade2, grades.get(2));
 	}
-	
+
 	@Test
 	public void shouldNotAddSameGradeTwice() {
 		composite.add(grade0);
-		
-		assertThrows(IllegalArgumentException.class, () ->{ 
+
+		assertThrows(IllegalArgumentException.class, () -> {
 			composite.add(grade0);
 		});
 	}
-	
+
 	@Test
 	public void shouldNotAddNullGrade() {
-		assertThrows(IllegalArgumentException.class, () ->{ 
+		assertThrows(IllegalArgumentException.class, () -> {
 			composite.add(null);
 		});
 	}

@@ -28,14 +28,13 @@ public class TestSumOfGradesStrategyCalculate {
 		grade0 = mock(Grade.class);
 		grade1 = mock(Grade.class);
 		grade2 = mock(Grade.class);
-		
 		grades = new ArrayList<Grade>();
 		
 		strategy = new SumOfGradesStrategy();
 		
-		when(grade0.getValue()).thenReturn(100.00);
-		when(grade1.getValue()).thenReturn(100.00);
-		when(grade2.getValue()).thenReturn(100.00);
+		when(grade0.getValue()).thenReturn(10.0);
+		when(grade1.getValue()).thenReturn(20.0);
+		when(grade2.getValue()).thenReturn(30.0);
 	}
 	
 	@Test
@@ -61,6 +60,6 @@ public class TestSumOfGradesStrategyCalculate {
 		grades.add(grade0);
 		grades.add(grade1);
 		grades.add(grade2);
-		assertEquals(300, strategy.calculate(grades), DELTA);
+		assertEquals(60, strategy.calculate(grades), DELTA);
 	}
 }

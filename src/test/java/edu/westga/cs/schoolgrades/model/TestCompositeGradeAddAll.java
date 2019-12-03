@@ -1,6 +1,5 @@
 package edu.westga.cs.schoolgrades.model;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import static org.mockito.Mockito.*;
@@ -15,7 +14,7 @@ public class TestCompositeGradeAddAll {
 	private Grade grade1;
 	private Grade grade2;
 	private List<Grade> list;
-	
+
 	@BeforeEach
 	public void setup() {
 		composite = new CompositeGrade(mock(GradeCalculationStrategy.class));
@@ -24,21 +23,20 @@ public class TestCompositeGradeAddAll {
 		grade2 = mock(Grade.class);
 		list = new ArrayList<Grade>();
 	}
-	
 
 	@Test
 	public void shouldNotAddNullGradesList() {
-		assertThrows(IllegalArgumentException.class, () ->{ 
+		assertThrows(IllegalArgumentException.class, () -> {
 			composite.addAll(null);
 		});
 	}
-	
+
 	@Test
 	public void shouldAddEmptyList() {
 		composite.addAll(new ArrayList<Grade>());
 		assertTrue(composite.getGrades().isEmpty());
 	}
-	
+
 	@Test
 	public void shouldAddOneElementList() {
 		list.add(grade0);
@@ -47,7 +45,7 @@ public class TestCompositeGradeAddAll {
 		assertEquals(1, actual.size());
 		assertEquals(grade0, actual.get(0));
 	}
-	
+
 	@Test
 	public void shouldAddManyElementsList() {
 		list.add(grade0);
@@ -67,20 +65,20 @@ public class TestCompositeGradeAddAll {
 		list.add(grade1);
 		list.add(grade0);
 		list.add(grade2);
-		
-		assertThrows(IllegalArgumentException.class, () ->{ 
+
+		assertThrows(IllegalArgumentException.class, () -> {
 			composite.addAll(list);
 		});
 	}
-	
+
 	@Test
 	public void shouldNotAddListThatDuplicatesExistingGrades() {
 		composite.add(grade1);
 		list.add(grade1);
 		list.add(grade0);
 		list.add(grade2);
-		
-		assertThrows(IllegalArgumentException.class, () ->{ 
+
+		assertThrows(IllegalArgumentException.class, () -> {
 			composite.addAll(list);
 		});
 	}
