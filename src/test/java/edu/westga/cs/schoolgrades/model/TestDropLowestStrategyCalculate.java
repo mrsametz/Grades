@@ -41,27 +41,22 @@ public class TestDropLowestStrategyCalculate {
 		when(grade2.getValue()).thenReturn(30.00);
 	}
 
-	
 	@Test
 	public void shouldNotAllowNullGradesList() {
-		
+
 		assertThrows(IllegalArgumentException.class, () -> {
-			when((dropLowestStrategy.calculate(null))).thenThrow(new IllegalArgumentException());
-			grades.add(null);
-			dropLowestStrategy.calculate(grades);
-			gradesMinusLowest.add(null);
-			Mockito.verify(childStrategy).calculate(gradesMinusLowest);
-			//dropLowestStrategy.calculate(null);
-			//childStrategy.calculate(null);
+
+			dropLowestStrategy.calculate(null);
+
 		});
 	}
 
 	@Test
 	public void shouldNotDropLowestIfGradesListIsEmpty() {
-		//assertEquals(0, dropLowestStrategy.calculate(grades), DELTA);
+
 		dropLowestStrategy.calculate(grades);
 		Mockito.verify(childStrategy).calculate(grades);
-		//Mockito.verify((childStrategy), Mockito.never()).calculate(grades);
+
 	}
 
 	public void shouldNotDropLowestIfGradesListHasOneElement() {
